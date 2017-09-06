@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{06250E51-0843-4A1F-BEFE-019E8A8B8AA4}</ProjectGuid>
+    <ProjectGuid>{389CBE27-92C7-41CD-9F51-DE8868AC7A52}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Concesionarios.Core</RootNamespace>
-    <AssemblyName>Concesionarios.Core</AssemblyName>
+    <RootNamespace>Concesionarios.DAL</RootNamespace>
+    <AssemblyName>Concesionarios.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,16 +35,34 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Auditoria.cs" />
-    <Compile Include="Coche.cs" />
-    <Compile Include="Common\BaseEntity.cs" />
-    <Compile Include="Concesionario.cs" />
-    <Compile Include="Enum\Accion.cs" />
-    <Compile Include="Enum\Modelo.cs" />
-    <Compile Include="Marca.cs" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConcesionariosDbContext.cs" />
+    <Compile Include="ConcesionariosDBInitializer.cs" />
+    <Compile Include="IConcesionariosDbContext.cs" />
+    <Compile Include="Mapping\AuditoriaMap.cs" />
+    <Compile Include="Mapping\CocheMap.cs" />
+    <Compile Include="Mapping\ConcesionarioMap.cs" />
+    <Compile Include="Mapping\MarcaMap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Concesionarios.Core\Concesionarios.Core.csproj">
+      <Project>{06250e51-0843-4a1f-befe-019e8a8b8aa4}</Project>
+      <Name>Concesionarios.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
