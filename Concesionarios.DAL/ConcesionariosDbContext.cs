@@ -42,58 +42,58 @@ namespace Concesionarios.DAL
 
             /*****************/
             /*AUDITORIA COCHE*/
-            var addedAuditedCocheEntities = ChangeTracker.Entries<Coche>()
+            var añadirCochesAuditados = ChangeTracker.Entries<Coche>()
                                         .Where(p => p.State == EntityState.Added)
                                         .Select(p => p.Entity);
 
-            var modifiedAuditedCocheEntities = ChangeTracker.Entries<Coche>()
+            var modificarCochesAuditados = ChangeTracker.Entries<Coche>()
                                           .Where(p => p.State == EntityState.Modified)
                                           .Select(p => p.Entity);
 
-            var deletedAuditedCocheEntities = ChangeTracker.Entries<Coche>()
+            var borrarCochesAuditados = ChangeTracker.Entries<Coche>()
                                          .Where(p => p.State == EntityState.Deleted)
                                          .Select(p => p.Entity);
 
-            foreach (var added in addedAuditedCocheEntities)
+            foreach (var added in añadirCochesAuditados)
             {
                 setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Insert, Modelo = Modelo.Coche, Coche = added });
             }
 
-            foreach (var modified in modifiedAuditedCocheEntities)
+            foreach (var modified in modificarCochesAuditados)
             {
                 setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Edit, Modelo = Modelo.Coche, Coche = modified });
             }
 
-            foreach (var deleted in deletedAuditedCocheEntities)
+            foreach (var deleted in borrarCochesAuditados)
             {
                 setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Delete, Modelo = Modelo.Coche, Coche = deleted });
             }
 
             /*************************/
             /*AUDITORIA CONCESIONARIO*/
-            var addedAuditedConcesionarioEntities = ChangeTracker.Entries<Concesionario>()
+            var añadirConcesionariosAuditados = ChangeTracker.Entries<Concesionario>()
                                      .Where(p => p.State == EntityState.Added)
                                      .Select(p => p.Entity);
 
-            var modifiedAuditedConcesionarioEntities = ChangeTracker.Entries<Concesionario>()
+            var modificarConcesionariosAuditados = ChangeTracker.Entries<Concesionario>()
                                           .Where(p => p.State == EntityState.Modified)
                                           .Select(p => p.Entity);
 
-            var deletedAuditedConcesionarioEntities = ChangeTracker.Entries<Concesionario>()
+            var eliminarConcesionariosAuditados = ChangeTracker.Entries<Concesionario>()
                                          .Where(p => p.State == EntityState.Deleted)
                                          .Select(p => p.Entity);
 
-            foreach (var added in addedAuditedConcesionarioEntities)
+            foreach (var added in añadirConcesionariosAuditados)
             {
                 setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Insert, Modelo = Modelo.Concesionario, Concesionario = added });
             }
 
-            foreach (var modified in modifiedAuditedConcesionarioEntities)
+            foreach (var modified in modificarConcesionariosAuditados)
             {
                 setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Edit, Modelo = Modelo.Concesionario, Concesionario = modified });
             }
 
-            foreach (var deleted in deletedAuditedConcesionarioEntities)
+            foreach (var deleted in eliminarConcesionariosAuditados)
             {
                 setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Delete, Modelo = Modelo.Concesionario, Concesionario = deleted });
             }
