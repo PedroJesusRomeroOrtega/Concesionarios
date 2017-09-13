@@ -5,5 +5,6 @@ namespace Concesionarios.Service
 {
     public interface IMarcaService : IEntityService<Marca>
     {
+        Marca GetById(int id);
     }
 }

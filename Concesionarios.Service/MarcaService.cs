@@ -15,5 +15,10 @@ namespace Concesionarios.Service
             this.unitOfWork = unitOfWork;
             this.marcaRepository = marcaRepository;
         }
+
+        public Marca GetById(int id)
+        {
+            return marcaRepository.GetById(id);
+        }
     }
 }

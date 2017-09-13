@@ -3,7 +3,7 @@ using System.Data.Entity;
 
 namespace Concesionarios.DAL
 {
-    public class ConcesionariosDBInitializer : DropCreateDatabaseIfModelChanges<ConcesionariosDbContext>
+    public class ConcesionariosDBInitializer : CreateDatabaseIfNotExists<ConcesionariosDbContext>
     {
         protected override void Seed(ConcesionariosDbContext context)
         {
@@ -14,6 +14,7 @@ namespace Concesionarios.DAL
             Marcas.Add(new Marca() { Nombre = "Seat" });
 
             base.Seed(context);
+            //context.SaveChanges();
         }
     }
 }

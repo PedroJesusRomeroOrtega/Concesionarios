@@ -1,8 +1,7 @@
-﻿using Concesionarios.DAL.Repository.Common;
-using System;
+﻿using System;
 using System.Data.Entity;
 
-namespace SampleArch.Repository
+namespace Concesionarios.DAL.Repository.Common
 {
     /// <summary>
     /// The Entity Framework implementation of IUnitOfWork

@@ -9,6 +9,7 @@ namespace Concesionarios.DAL.Mapping
         {
             HasKey(m => m.Id);
             Property(m => m.Nombre).IsRequired().HasMaxLength(100);
+            ToTable("Marca");
         }
     }
 }

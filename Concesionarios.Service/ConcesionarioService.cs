@@ -15,5 +15,10 @@ namespace Concesionarios.Service
             this.unitOfWork = unitOfWork;
             this.concesionarioRepository = concesionarioRepository;
         }
+
+        public Concesionario GetById(int id)
+        {
+            return concesionarioRepository.GetById(id);
+        }
     }
 }

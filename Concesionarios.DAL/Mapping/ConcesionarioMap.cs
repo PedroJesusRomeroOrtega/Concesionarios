@@ -10,6 +10,7 @@ namespace Concesionarios.DAL.Mapping
             HasKey(c => c.Id);
             Property(c => c.Nombre).IsRequired().HasMaxLength(100);
             Property(c => c.Direccion).HasMaxLength(300);
+            ToTable("Concesionario");
         }
     }
 }

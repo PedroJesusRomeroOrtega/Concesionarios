@@ -12,10 +12,14 @@ namespace Concesionarios.DAL.Repository.Common
         protected DbContext _entities;
         protected readonly IDbSet<T> _dbset;
 
-        public GenericRepository(DbContext context)
+        public GenericRepository(DbContext dbContext)
         {
-            _entities = context;
-            _dbset = context.Set<T>();
+            if (dbContext == null) throw new ArgumentNullException("dbContext");
+            else
+            {
+                _entities = dbContext;
+                _dbset = dbContext.Set<T>();
+            }
         }
 
         public virtual IEnumerable<T> GetAll()

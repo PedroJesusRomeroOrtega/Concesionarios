@@ -12,6 +12,7 @@ namespace Concesionarios.DAL.Mapping
             Property(a => a.Accion).IsRequired();
             HasOptional(a => a.Coche).WithOptionalDependent();
             HasOptional(a => a.Concesionario).WithOptionalDependent();
+            ToTable("Auditoria");
         }
     }
 }

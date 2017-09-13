@@ -5,5 +5,6 @@ namespace Concesionarios.Service
 {
     public interface ICocheService : IEntityService<Coche>
     {
+        Coche GetById(int id);
     }
 }

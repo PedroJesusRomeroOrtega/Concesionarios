@@ -13,7 +13,11 @@ namespace Concesionarios.DAL
     {
         public ConcesionariosDbContext() : base("name=DbConnectionString")
         {
-            Database.SetInitializer<ConcesionariosDbContext>(new DropCreateDatabaseIfModelChanges<ConcesionariosDbContext>());
+            Database.SetInitializer<ConcesionariosDbContext>(new CreateDatabaseIfNotExists<ConcesionariosDbContext>());
+            //Database.SetInitializer(new ConcesionariosDBInitializer()); 
+            //Database.Initialize(true);
+            //var marca = Set<Marca>();
+            //var firstMarca = marca.FirstOrDefault();
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
