@@ -8,8 +8,11 @@ namespace Concesionarios.DAL.Mapping
         public ConcesionarioMap()
         {
             HasKey(c => c.Id);
-            Property(c => c.Nombre).IsRequired().HasMaxLength(100);
-            Property(c => c.Direccion).HasMaxLength(300);
+            Property(c => c.Nombre)
+                .HasMaxLength(100)
+                .IsRequired();
+            Property(c => c.Direccion)
+                .HasMaxLength(300);
             ToTable("Concesionario");
         }
     }

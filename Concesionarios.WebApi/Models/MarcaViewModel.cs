@@ -1,8 +1,7 @@
 ﻿namespace Concesionarios.WebApi.Models
 {
-    public class ConcesionarioModel
+    public class MarcaViewModel
     {
         public string Nombre { get; set; }
-        public string Direccion { get; set; }
     }
 }

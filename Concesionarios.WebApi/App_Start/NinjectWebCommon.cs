@@ -72,11 +72,14 @@ namespace Concesionarios.WebApi.App_Start
             //kernel.Bind<IConcesionariosDbContext>().To<ConcesionariosDbContext>().InRequestScope();
             kernel.Bind<DbContext>().To<ConcesionariosDbContext>().InRequestScope();
             kernel.Bind(typeof(IGenericRepository<>)).To(typeof(GenericRepository<>)).InRequestScope();
+            kernel.Bind<IConcesionarioRepository>().To<ConcesionarioRepository>().InRequestScope();
+            kernel.Bind<ICocheRepository>().To<CocheRepository>().InRequestScope();
             kernel.Bind<IMarcaRepository>().To<MarcaRepository>().InRequestScope();
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
             kernel.Bind(typeof(IEntityService<>)).To(typeof(EntityService<>)).InRequestScope();
+            kernel.Bind<IConcesionarioService>().To<ConcesionarioService>().InRequestScope();
+            kernel.Bind<ICocheService>().To<CocheService>().InRequestScope();
             kernel.Bind<IMarcaService>().To<MarcaService>().InRequestScope();
-
             //// unit of work per request
             //kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
 

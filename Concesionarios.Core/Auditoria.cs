@@ -9,7 +9,7 @@ namespace Concesionarios.Core
         public DateTime Fecha { get; set; }
         public Modelo Modelo { get; set; }
         public Accion Accion { get; set; }
-        public virtual Coche Coche { get; set; }
-        public virtual Concesionario Concesionario { get; set; }
+        //public virtual Coche Coche { get; set; }
+        //public virtual Concesionario Concesionario { get; set; }
     }
 }

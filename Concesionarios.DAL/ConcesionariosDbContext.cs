@@ -40,7 +40,6 @@ namespace Concesionarios.DAL
 
         public override int SaveChanges()
         {
-            //TODO: Buscar otra forma más elegante de hacer la auditoría.
             var now = DateTime.UtcNow;
             var setAuditoria = Set<Auditoria>();
 
@@ -60,17 +59,17 @@ namespace Concesionarios.DAL
 
             foreach (var added in añadirCochesAuditados)
             {
-                setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Insert, Modelo = Modelo.Coche, Coche = added });
+                setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Insert, Modelo = Modelo.Coche });
             }
 
             foreach (var modified in modificarCochesAuditados)
             {
-                setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Edit, Modelo = Modelo.Coche, Coche = modified });
+                setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Edit, Modelo = Modelo.Coche });
             }
 
             foreach (var deleted in borrarCochesAuditados)
             {
-                setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Delete, Modelo = Modelo.Coche, Coche = deleted });
+                setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Delete, Modelo = Modelo.Coche });
             }
 
             /*************************/
@@ -89,17 +88,17 @@ namespace Concesionarios.DAL
 
             foreach (var added in añadirConcesionariosAuditados)
             {
-                setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Insert, Modelo = Modelo.Concesionario, Concesionario = added });
+                setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Insert, Modelo = Modelo.Concesionario });
             }
 
             foreach (var modified in modificarConcesionariosAuditados)
             {
-                setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Edit, Modelo = Modelo.Concesionario, Concesionario = modified });
+                setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Edit, Modelo = Modelo.Concesionario });
             }
 
             foreach (var deleted in eliminarConcesionariosAuditados)
             {
-                setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Delete, Modelo = Modelo.Concesionario, Concesionario = deleted });
+                setAuditoria.Add(new Auditoria() { Fecha = now, Accion = Accion.Delete, Modelo = Modelo.Concesionario });
             }
 
 
