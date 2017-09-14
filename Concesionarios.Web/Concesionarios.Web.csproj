@@ -218,13 +218,22 @@
     <TypeScriptCompile Include="app\app.routing.ts" />
     <TypeScriptCompile Include="app\Components\concesionario.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="app\Models\coche.ts" />
     <TypeScriptCompile Include="app\Models\concesionario.ts" />
+    <TypeScriptCompile Include="app\Models\marca.ts" />
+    <TypeScriptCompile Include="app\Service\coche.service.ts" />
     <TypeScriptCompile Include="app\Service\concesionario.service.ts" />
     <TypeScriptCompile Include="app\Shared\enum.ts" />
     <TypeScriptCompile Include="app\Shared\global.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Concesionarios.DAL\Concesionarios.DAL.csproj">
+      <Project>{389CBE27-92C7-41CD-9F51-DE8868AC7A52}</Project>
+      <Name>Concesionarios.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

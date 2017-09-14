@@ -15,7 +15,9 @@ var ng2_bs3_modal_1 = require("ng2-bs3-modal/ng2-bs3-modal");
 var http_1 = require("@angular/http");
 var app_routing_1 = require("./app.routing");
 var concesionario_service_1 = require("./Service/concesionario.service");
+var coche_service_1 = require("./Service/coche.service");
 var concesionario_component_1 = require("./components/concesionario.component");
+//import { CocheComponent } from './components/coche.component';
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,7 +27,7 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpModule, app_routing_1.routing, ng2_bs3_modal_1.Ng2Bs3ModalModule],
         declarations: [app_component_1.AppComponent, concesionario_component_1.ConcesionarioComponent],
-        providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, concesionario_service_1.ConcesionarioService],
+        providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, concesionario_service_1.ConcesionarioService, coche_service_1.CocheService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

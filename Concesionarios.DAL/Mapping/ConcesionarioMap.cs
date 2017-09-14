@@ -13,6 +13,8 @@ namespace Concesionarios.DAL.Mapping
                 .IsRequired();
             Property(c => c.Direccion)
                 .HasMaxLength(300);
+            
+    
             ToTable("Concesionario");
         }
     }

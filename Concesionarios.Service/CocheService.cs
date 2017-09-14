@@ -2,6 +2,7 @@
 using Concesionarios.DAL.Repository;
 using Concesionarios.DAL.Repository.Common;
 using Concesionarios.Service.Common;
+using System.Collections.Generic;
 
 namespace Concesionarios.Service
 {
@@ -19,6 +20,11 @@ namespace Concesionarios.Service
         public Coche GetById(int id)
         {
             return cocheRepository.GetById(id);
+        }
+
+        public IEnumerable<Coche> GetAll(int idConcesionario)
+        {
+            return cocheRepository.GetAll(idConcesionario);
         }
     }
 }

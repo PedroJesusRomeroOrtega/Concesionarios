@@ -9,11 +9,11 @@ namespace Concesionarios.DAL.Mapping
         {
             HasKey(c => c.Id);
             Property(c => c.Matricula)
-                .HasMaxLength(10); //TODO: mirar REGEX
-            HasRequired(c => c.Concesionario)
-                .WithRequiredDependent();
-            HasRequired(c => c.Marca)
-                .WithRequiredDependent();
+                .HasMaxLength(10);
+            //HasRequired(c => c.Concesionario).WithRequiredDependent();
+            //HasRequired(c => c.Concesionario).WithMany(con => (ICollection<Coche>)con.Coches).HasForeignKey(c => c.Concesionario);
+            //HasRequired(c => c.Marca).WithMany(m => (ICollection<Coche>)m.Coches).HasForeignKey(c => c.Marca);
+
             ToTable("Coche");
         }
     }

@@ -7,6 +7,6 @@ namespace Concesionarios.Core
     {
         public string Nombre { get; set; }
         public string Direccion { get; set; }
-        public virtual IEnumerable<Coche> Coches { get; set; }
+        public virtual ICollection<Coche> Coches { get; set; }
     }
 }

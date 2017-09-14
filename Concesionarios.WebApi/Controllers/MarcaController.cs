@@ -1,6 +1,7 @@
-﻿using Concesionarios.Core;
-using Concesionarios.Service;
+﻿using Concesionarios.Service;
+using Concesionarios.WebApi.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 
 namespace Concesionarios.WebApi.Controllers
@@ -14,9 +15,13 @@ namespace Concesionarios.WebApi.Controllers
         }
 
         // GET: api/Concesionarios
-        public IEnumerable<Marca> Get()
+        public IEnumerable<MarcaViewModel> Get()
         {
-            return marcaService.GetAll();
+            return marcaService.GetAll().Select(m => new MarcaViewModel()
+            {
+                Id = m.Id,
+                Nombre = m.Nombre
+            });
         }
     }
 }

@@ -9,10 +9,12 @@ namespace Concesionarios.WebApi.Models
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(100, ErrorMessage = "El campo Nombre ha excedido su longitud")]
+        [StringLength(100, ErrorMessage = "El campo Nombre ha excedido su longitud")]
         public string Nombre { get; set; }
 
-        [MaxLength(300, ErrorMessage = "El campo Dirección ha excedido su longitud")]
+        [StringLength(300, ErrorMessage = "El campo Dirección ha excedido su longitud")]
         public string Direccion { get; set; }
+
+        //public ICollection<CocheViewModel> Coches { get; set; }
     }
 }

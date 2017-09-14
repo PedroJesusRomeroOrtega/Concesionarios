@@ -8,12 +8,14 @@ import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 
 import { ConcesionarioService } from './Service/concesionario.service'
+import { CocheService } from './Service/coche.service'
 import { ConcesionarioComponent } from './components/concesionario.component';
+//import { CocheComponent } from './components/coche.component';
 
 @NgModule({
     imports: [BrowserModule, ReactiveFormsModule, HttpModule, routing, Ng2Bs3ModalModule],
     declarations: [AppComponent, ConcesionarioComponent],
-    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, ConcesionarioService],
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, ConcesionarioService, CocheService],
     bootstrap: [AppComponent]
 })
 

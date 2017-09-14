@@ -3,7 +3,7 @@ using System.Data.Entity;
 
 namespace Concesionarios.DAL
 {
-    public class ConcesionariosDBInitializer : CreateDatabaseIfNotExists<ConcesionariosDbContext>
+    public class ConcesionariosDBInitializer : DropCreateDatabaseIfModelChanges<ConcesionariosDbContext>
     {
         protected override void Seed(ConcesionariosDbContext context)
         {

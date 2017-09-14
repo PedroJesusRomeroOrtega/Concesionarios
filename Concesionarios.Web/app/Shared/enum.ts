@@ -1,5 +1,8 @@
 ﻿export enum DBOperation {
-    create = 1,
-    update = 2,
-    delete = 3
+    createConcesionario = 1,
+    updateConcesionario = 2,
+    deleteConcesionario = 3,
+    createCoche = 4,
+    updateCoche = 5,
+    deleteCoche = 6
 }

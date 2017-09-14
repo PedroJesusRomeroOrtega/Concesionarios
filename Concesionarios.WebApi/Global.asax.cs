@@ -9,6 +9,7 @@ namespace Concesionarios.WebApi
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
             Database.SetInitializer(new ConcesionariosDBInitializer());
         }
     }

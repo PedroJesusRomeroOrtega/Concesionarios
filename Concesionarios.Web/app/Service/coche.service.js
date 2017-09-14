@@ -15,18 +15,16 @@ var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/do");
 require("rxjs/add/operator/catch");
-//import 'rxjs/Rx';
-//import 'rxjs/add/observable/fromEvent';
-var ConcesionarioService = (function () {
-    function ConcesionarioService(_http) {
+var CocheService = (function () {
+    function CocheService(_http) {
         this._http = _http;
     }
-    ConcesionarioService.prototype.get = function (url) {
+    CocheService.prototype.get = function (url) {
         return this._http.get(url)
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    ConcesionarioService.prototype.post = function (url, model) {
+    CocheService.prototype.post = function (url, model) {
         model.Id = 0; //para que no falle el modelstate.isvalid del webapi
         var body = JSON.stringify(model);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
@@ -35,7 +33,7 @@ var ConcesionarioService = (function () {
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    ConcesionarioService.prototype.put = function (url, id, model) {
+    CocheService.prototype.put = function (url, id, model) {
         var body = JSON.stringify(model);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
@@ -43,22 +41,22 @@ var ConcesionarioService = (function () {
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    ConcesionarioService.prototype.delete = function (url, id) {
+    CocheService.prototype.delete = function (url, id) {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
         return this._http.delete(url + id, options)
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    ConcesionarioService.prototype.handleError = function (error) {
+    CocheService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');
     };
-    return ConcesionarioService;
+    return CocheService;
 }());
-ConcesionarioService = __decorate([
+CocheService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_1.Http])
-], ConcesionarioService);
-exports.ConcesionarioService = ConcesionarioService;
-//# sourceMappingURL=concesionario.service.js.map
+], CocheService);
+exports.CocheService = CocheService;
+//# sourceMappingURL=coche.service.js.map

@@ -9,9 +9,15 @@ namespace Concesionarios.DAL.Repository
     {
         public ConcesionarioRepository(DbContext context) : base(context) { }
 
+        //public override IEnumerable<Concesionario> GetAll()
+        //{
+        //    return _dbset.Include(c => c.Coches).AsEnumerable();
+        //}
+
         public Concesionario GetById(int id)
         {
-            return FindBy(c => c.Id == id).FirstOrDefault();
+            //return _dbset.Where(c => c.Id == id).Include(c => c.Coches).FirstOrDefault();
+            return _dbset.Where(c => c.Id == id).FirstOrDefault();
         }
     }
 }

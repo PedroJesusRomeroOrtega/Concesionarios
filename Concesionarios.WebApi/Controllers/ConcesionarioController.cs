@@ -20,10 +20,11 @@ namespace Concesionarios.WebApi.Controllers
             this.concesionarioService = concesionarioService;
         }
 
-        //// GET: api/Concesionario
+        // GET: api/Concesionario
         public IEnumerable<ConcesionarioViewModel> Get()
         {
-            return concesionarioService.GetAll().Select(c => new ConcesionarioViewModel()
+            IEnumerable<Concesionario> concesionarios = concesionarioService.GetAll();
+            return concesionarios.Select(c => new ConcesionarioViewModel()
             {
                 Id = c.Id,
                 Nombre = c.Nombre,

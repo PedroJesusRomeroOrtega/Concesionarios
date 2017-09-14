@@ -4,7 +4,7 @@
     </div>
     <div class='panel-body'>
         <div class='table-responsive'>
-            <div style="padding-bottom:10px"><button class="btn btn-primary" (click)="addConcesionario()">Añadir</button></div>
+            <div style="padding-bottom:10px"><button class="btn btn-primary" (click)="addConcesionario()">Añadir concesionario</button></div>
             <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../Images/loading.gif" width="32" height="32" /> Cargando...</div>
             <div *ngIf='concesionarios && concesionarios.length==0' class="alert alert-info" role="alert">No se ha encontrado ningún concesionario</div>
             <table class='table table-striped' *ngIf='concesionarios && concesionarios.length'>
@@ -15,13 +15,41 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr *ngFor="let concesionario of concesionarios">
+                <tbody *ngFor="let concesionario of concesionarios">
+                    <tr>
                         <td>{{concesionario.Nombre}}</td>
                         <td>{{concesionario.Direccion}}</td>
                         <td>
-                            <button title="Modificar" class="btn btn-primary" (click)="editConcesionario(concesionario.Id)">Edit</button>
-                            <button title="Eliminar" class="btn btn-danger" (click)="deleteConcesionario(concesionario.Id)">Delete</button>
+                            <button title="Detalle" class="btn btn-info" (click)="detailConcesionario(concesionario.Id)">Ver coches</button>
+                            <button title="Modificar" class="btn btn-primary" (click)="editConcesionario(concesionario.Id)">Editar</button>
+                            <button title="Eliminar" class="btn btn-danger" (click)="deleteConcesionario(concesionario.Id)">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr *ngIf="activeRow==concesionario.Id">
+                        <td colspan="3">
+                            <div class='panel panel-body'>
+                                <div style="padding-bottom:10px"><button class="btn btn-primary" (click)="addCoche()">Añadir coche</button></div>
+                                <div class="alert alert-info" role="alert" *ngIf="indLoadingCoche"><img src="../../Images/loading.gif" width="32" height="32" /> Cargando coches...</div>
+                                <table class='table table-condensed' *ngIf='coches && coches.length'>
+                                    <thead>
+                                        <tr>
+                                            <th>Matricula</th>
+                                            <th>Kilometros</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor="let coche of coches">
+                                        <tr>
+                                            <td>{{coche.Matricula}}</td>
+                                            <td>{{coche.Kilometros}}</td>
+                                            <td>
+                                                <button title="Modificar" class="btn btn-primary" (click)="editCoche(coche.Id)">Editar</button>
+                                                <button title="Eliminar" class="btn btn-danger" (click)="deleteCoche(coche.Id)">Eliminar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
@@ -47,7 +75,7 @@
 
             <div class="form-group">
                 <div>
-                    <input type="hidden" class="form-control"  value="0" formControlName="Id"/>
+                    <input type="hidden" class="form-control" value="0" formControlName="Id" />
                     <span>Nombre*</span>
                     <input type="text" class="form-control" placeholder="Nombre" formControlName="Nombre">
                 </div>
@@ -61,6 +89,41 @@
             <div>
                 <a class="btn btn-default" (click)="modal.dismiss()">Cancelar</a>
                 <button type="submit" [disabled]="concesionarioFrm.invalid" class="btn btn-primary">{{modalBtnTitle}}</button>
+            </div>
+        </modal-footer>
+    </form>
+</modal>
+
+<modal #modal2>
+    <form novalidate (ngSubmit)="onSubmit(cocheFrm)" [formGroup]="cocheFrm">
+        <modal-header [show-close]="true">
+            <h4 class="modal-title">{{modalCocheTitle}}</h4>
+        </modal-header>
+        <modal-body>
+            <div class="form-group">
+                <div>
+                    <input type="hidden" class="form-control" value="0" formControlName="Id" />
+                    <span>Matricula*</span>
+                    <input type="text" class="form-control" placeholder="Matricula" formControlName="Matricula">
+                </div>
+                <div>
+                    <span>Kilometros</span>
+                    <input type="text" class="form-control" placeholder="Kilometros" formControlName="Kilometros">
+                </div>
+                <div>
+                    <span>Id Concesionario</span>
+                    <input type="text" class="form-control" formControlName="IdConcesionario">
+                </div>
+                <div>
+                    <span>Id Marca</span>
+                    <input type="text" class="form-control" formControlName="IdMarca">
+                </div>
+            </div>
+        </modal-body>
+        <modal-footer>
+            <div>
+                <a class="btn btn-default" (click)="modal2.dismiss()">Cancelar</a>
+                <button type="submit" [disabled]="cocheFrm.invalid" class="btn btn-primary">{{modalBtnCocheTitle}}</button>
             </div>
         </modal-footer>
     </form>

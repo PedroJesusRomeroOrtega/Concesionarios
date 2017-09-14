@@ -13,11 +13,9 @@ namespace Concesionarios.DAL
     {
         public ConcesionariosDbContext() : base("name=DbConnectionString")
         {
-            Database.SetInitializer<ConcesionariosDbContext>(new CreateDatabaseIfNotExists<ConcesionariosDbContext>());
-            //Database.SetInitializer(new ConcesionariosDBInitializer()); 
-            //Database.Initialize(true);
-            //var marca = Set<Marca>();
-            //var firstMarca = marca.FirstOrDefault();
+            Database.SetInitializer<ConcesionariosDbContext>(new DropCreateDatabaseIfModelChanges<ConcesionariosDbContext>());
+            int numcoches = this.Set<Coche>().Count();//para forzar que se inicialize la base de datos
+            this.Database.Initialize(true);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
