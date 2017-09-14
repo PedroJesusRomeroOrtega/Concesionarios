@@ -10,7 +10,7 @@ namespace Concesionarios.WebApi
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
-            Database.SetInitializer(new ConcesionariosDBInitializer());
+            Database.SetInitializer(new ConcesionariosDBInitializer());//inicializar la tabla con las marcas
         }
     }
 }

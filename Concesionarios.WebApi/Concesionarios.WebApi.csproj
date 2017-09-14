@@ -121,7 +121,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\UnitOfWorkActionFilter.cs" />
     <Compile Include="Models\CocheViewModel.cs" />
     <Compile Include="Models\ConcesionarioViewModel.cs" />
     <Compile Include="Models\MarcaViewModel.cs" />
